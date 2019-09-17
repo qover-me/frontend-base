@@ -32,7 +32,6 @@ RUN wget -q https://storage.googleapis.com/kubernetes-helm/helm-${HELM_VERSION}-
 
 ENV PATH=$PATH:/opt/google-cloud-sdk/bin
 
-COPY docker-entrypoint.sh /usr/local/bin/
+COPY scripts /usr/local/bin/
 
-ENTRYPOINT [ "docker-entrypoint.sh" ]
 CMD ["sh"]
