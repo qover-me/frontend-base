@@ -3,7 +3,7 @@ set -e
 
 helm upgrade \
 --install $DEPLOY_NAMESPACE-$RELEASE_NAME \
--f $PROJECT_PATH/deploy/env/sandbox-values.yaml $PROJECT_PATH/deploy/ \
+-f $PROJECT_PATH/deploy/env/$DEPLOY_NAMESPACE-values.yaml $PROJECT_PATH/deploy/ \
 --set image.tag=$CI_COMMIT_SHORT_SHA \
 --namespace=$DEPLOY_NAMESPACE \
 --wait \
