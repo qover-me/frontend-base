@@ -13,7 +13,7 @@ docker build \
 --cache-from "$GCLOUD_IMAGE_NAME:builder" \
 -t "$IMAGE_NAME:builder" \
 -t "$GCLOUD_IMAGE_NAME:builder" \
--f internal-apps/identity/Dockerfile "."
+-f $PROJECT_PATH/Dockerfile "."
 
 docker build \
   --cache-from "$GCLOUD_IMAGE_NAME:builder" \
