@@ -9,11 +9,12 @@ docker pull "$GCLOUD_IMAGE_NAME:latest" || true
 docker pull "$GCLOUD_IMAGE_NAME:builder" || true
 
 docker build \
---target builder \
---cache-from "$GCLOUD_IMAGE_NAME:builder" \
--t "$IMAGE_NAME:builder" \
--t "$GCLOUD_IMAGE_NAME:builder" \
--f $PROJECT_PATH/Dockerfile "."
+  --build-arg CI_COMMIT_SHORT_SHA \
+  --target builder \
+  --cache-from "$GCLOUD_IMAGE_NAME:builder" \
+  -t "$IMAGE_NAME:builder" \
+  -t "$GCLOUD_IMAGE_NAME:builder" \
+  -f $PROJECT_PATH/Dockerfile "."
 
 docker build \
   --build-arg CI_COMMIT_SHORT_SHA \
