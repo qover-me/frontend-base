@@ -16,6 +16,7 @@ docker build \
 -f $PROJECT_PATH/Dockerfile "."
 
 docker build \
+  --build-arg CI_COMMIT_SHORT_SHA \
   --cache-from "$GCLOUD_IMAGE_NAME:builder" \
   --cache-from "$GCLOUD_IMAGE_NAME:latest" \
   -t $IMAGE_NAME \
