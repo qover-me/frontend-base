@@ -8,7 +8,7 @@ ARG KUBECTL_VERSION=v1.9.1
 ARG HELM_VERSION=v2.7.2
 
 # install dependencies
-RUN apk add --update --no-cache make ca-certificates tar wget openssl python bash
+RUN apk add --update --no-cache make ca-certificates tar wget openssl python bash curl
 RUN update-ca-certificates
 # RUN mkdir /opt
 
